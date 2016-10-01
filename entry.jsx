@@ -1,9 +1,10 @@
-import Hello from './hello.jsx';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import Container from "./container.jsx";
+import React from "react";
+import ReactDOM from "react-dom";
+import generateWords from "./word-generator";
 
 ReactDOM.render(
-  <Hello name='Freewind' />,
+  <Container columns={25} words={generateWords(25 * 25)}/>,
   document.getElementById("content")
 );
 
