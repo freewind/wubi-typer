@@ -3,9 +3,18 @@ import Word from './word.jsx';
 import _ from 'lodash';
 
 class Container extends Component {
+
+  componentWillMount() {
+    document.body.onkeypress = this._onKeyPress;
+  }
+
+  componentWillUnmount() {
+    document.body.onkeypress = undefined;
+  }
+
   render() {
     const {columns, words} = this.props;
-    return <div> {
+    return <div onKeyPress={this._onKeyPress.bind(this)}> {
       _.chunk(words, columns).map((wordsInRow, row) => {
         return <div key={row}> {
           wordsInRow.map((word, column) => {
@@ -14,6 +23,10 @@ class Container extends Component {
         } </div>
       })
     } </div>;
+  }
+
+  _onKeyPress(event) {
+    alert(event.key);
   }
 }
 

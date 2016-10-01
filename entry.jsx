@@ -1,3 +1,4 @@
+"use strict";
 import Container from "./container.jsx";
 import React from "react";
 import ReactDOM from "react-dom";
