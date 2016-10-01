@@ -1,7 +1,7 @@
-React Props Demo
-======================
+Wubi Typer
+==========
 
-Pass value to other component as props.
+Practise Wubi.
 
 ```
 npm install
