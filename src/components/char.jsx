@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './char.less';
 
 class Char extends Component {
   constructor(props) {
@@ -9,20 +10,10 @@ class Char extends Component {
   }
 
   render() {
-    const stateStyleMapping = {
-      'waiting': {
-        backgroundColor: 'white'
-      },
-      'correct': {
-        backgroundColor: 'green'
-      },
-      'wrong': {
-        backgroundColor: 'red'
-      }
-    };
-    const {char, typed} = this.props.content;
-    return <span style={stateStyleMapping[typed]}>
-		  {char}
+    const stateStyleMapping = {};
+    const {char, image, typingState} = this.props.content;
+    return <span className={'char ' + typingState} style={stateStyleMapping[typingState]}>
+      <img src={image} title={char}/>
 		</span>;
   }
 }

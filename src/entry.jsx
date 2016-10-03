@@ -10,7 +10,7 @@ const store = createStore(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
-    <GridContainer rows={25} columns={25}/>
+    <GridContainer count={500}/>
   </Provider>,
   document.getElementById("content")
 );

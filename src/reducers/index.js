@@ -4,7 +4,7 @@ import generateChar from '../char-generator';
 
 const initStore = {
   currentCharIndex: 0,
-  chars: [] // [{char: String, typed: 'waiting/correct/wrong'}]
+  chars: [] // [{char: String, image:String, typingState: 'waiting/correct/wrong'}]
 };
 
 function _handleTyping(state, action) {
@@ -12,10 +12,9 @@ function _handleTyping(state, action) {
     currentCharIndex: state.currentCharIndex + 1,
     chars: state.chars.map((item, index) => {
       if (index === state.currentCharIndex) {
-        return {
-          char: item.char,
-          typed: item.char.toLowerCase() === action.char.toLowerCase() ? 'correct' : 'wrong'
-        };
+        return Object.assign({}, item, {
+          typingState: item.char.toLowerCase() === action.char.toLowerCase() ? 'correct' : 'wrong'
+        });
       } else {
         return item;
       }
@@ -27,9 +26,11 @@ function _handleReloadChars(state, action) {
   return Object.assign({}, state, {
     currentCharIndex: 0,
     chars: _.fill(Array(action.count), {}).map(x => {
+      const {char, image}= generateChar();
       return {
-        char: generateChar(),
-        typed: 'waiting'
+        char,
+        image,
+        typingState: 'waiting'
       }
     })
   });
