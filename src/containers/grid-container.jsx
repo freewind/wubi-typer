@@ -5,7 +5,8 @@ import * as actions from '../actions/index';
 
 function mapStateToProps(state) {
   return {
-    chars: state.chars
+    chars: state.chars,
+    finished: state.finished
   };
 }
 
