@@ -1,5 +1,7 @@
-import React, {Component} from "react";
-import Char from "./char.jsx";
+import React, {Component} from 'react';
+import Char from './char.jsx';
+import TimerContainer from '../containers/timer-container.jsx';
+import './grid.less';
 
 export default class Grid extends Component {
 
@@ -19,9 +21,14 @@ export default class Grid extends Component {
 
   render() {
     const {chars} = this.props;
-    return <div> {
-      chars.map((char, index) => <Char content={char} key={index}/>)
-    } </div>;
+    return <div>
+      <div>{
+        chars.map((char, index) => <Char content={char} key={index}/>)
+      } </div>
+      <div className="footer">
+        <TimerContainer />
+      </div>
+    </div>;
   }
 
   _onKeyPress(event) {

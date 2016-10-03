@@ -1,9 +1,11 @@
 'use strict';
 import actionTypes from '../actions/types';
 import generateChar from '../char-generator';
+import moment from 'moment';
 
 const initStore = {
   currentCharIndex: 0,
+  startTime: moment(),
   chars: [] // [{char: String, image:String, typingState: 'waiting/correct/wrong'}]
 };
 
