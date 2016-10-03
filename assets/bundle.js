@@ -20922,7 +20922,7 @@
 	        "div",
 	        null,
 	        speed,
-	        " chars per minutes"
+	        " chars per minute"
 	      );
 	    }
 	  }]);
