@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import moment from 'moment';
-import './timer.less';
 
 export default class Timer extends Component {
   constructor(props) {
@@ -29,9 +28,6 @@ export default class Timer extends Component {
 
   render() {
     const {elapsedTime} = this.state;
-    return <span>
-      <span className="elapsed-time">{ moment(elapsedTime).format('mm:ss') }</span>
-      { this.props.finished ? <span className="finished">(Finished)</span> : ''}
-    </span>;
+    return <div> { moment(elapsedTime).format('mm:ss') } </div>;
   }
 }

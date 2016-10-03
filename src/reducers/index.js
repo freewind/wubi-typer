@@ -7,12 +7,12 @@ const initStore = {
   currentCharIndex: 0,
   startTime: moment(),
   finished: false,
+  finishTime: undefined,
   chars: [] // [{char: String, image:String, typingState: 'waiting/correct/wrong'}]
 };
 
 function _handleTyping(state, action) {
-  const isFinished = state.currentCharIndex >= state.chars.length;
-  if (isFinished) {
+  if (state.finished) {
     return state;
   }
 
@@ -29,7 +29,8 @@ function _handleTyping(state, action) {
         return item;
       }
     }),
-    finished: isLastChar
+    finished: isLastChar,
+    finishTime: isLastChar ? moment() : undefined
   });
 }
 
