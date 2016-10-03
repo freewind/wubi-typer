@@ -1,6 +1,6 @@
 'use strict';
 import actionTypes from '../actions/types';
-import generateChar from '../char-generator';
+import generateChar from '../generate-char';
 import moment from 'moment';
 
 const initStore = {
