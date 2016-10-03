@@ -5,7 +5,10 @@ Practise Wubi.
 
 ```
 npm install
-npm start
+npm install -g http-server
+
+webpack -w
+http-server
 ```
 
-Then visit <http://localhost:8080/webpack-dev-server/>.
+Then visit <http://localhost:8080>.
