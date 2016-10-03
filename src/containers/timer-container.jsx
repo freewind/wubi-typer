@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 
 function mapStateToProps(state) {
   return {
-    startTime: state.startTime
+    startTime: state.startTime,
+    finished: state.finished
   };
 }
 

@@ -6,10 +6,18 @@ import moment from 'moment';
 const initStore = {
   currentCharIndex: 0,
   startTime: moment(),
+  finished: false,
   chars: [] // [{char: String, image:String, typingState: 'waiting/correct/wrong'}]
 };
 
 function _handleTyping(state, action) {
+  const isFinished = state.currentCharIndex >= state.chars.length;
+  if (isFinished) {
+    return state;
+  }
+
+  const isLastChar = state.currentCharIndex + 1 === state.chars.length;
+
   return Object.assign({}, state, {
     currentCharIndex: state.currentCharIndex + 1,
     chars: state.chars.map((item, index) => {
@@ -20,7 +28,8 @@ function _handleTyping(state, action) {
       } else {
         return item;
       }
-    })
+    }),
+    finished: isLastChar
   });
 }
 

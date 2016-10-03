@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import moment from 'moment';
+import './timer.less';
 
 export default class Timer extends Component {
   constructor(props) {
@@ -19,15 +20,18 @@ export default class Timer extends Component {
 
   _onTick() {
     const {startTime} = this.props;
-    this.setState({
-      elapsedTime: moment().diff(startTime)
-    })
+    if (!this.props.finished) {
+      this.setState({
+        elapsedTime: moment().diff(startTime)
+      })
+    }
   }
 
   render() {
     const {elapsedTime} = this.state;
-    return <div className="timer"> {
-      moment(elapsedTime).format('mm:ss')
-    } </div>;
+    return <span>
+      <span className="elapsed-time">{ moment(elapsedTime).format('mm:ss') }</span>
+      { this.props.finished ? <span className="finished">(Finished)</span> : ''}
+    </span>;
   }
 }
